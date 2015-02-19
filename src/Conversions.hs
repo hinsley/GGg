@@ -7,7 +7,7 @@ asciiToG :: Char -> String
 asciiToG a = fromMaybe [a] $ Bimap.lookup a lookupTable
 
 gToAscii :: String -> Char
-gToAscii g = fromMaybe '?' $ Bimap.lookupR g lookupTable
+gToAscii g = fromMaybe (g !! 0) $ Bimap.lookupR g lookupTable
 
 asciiTextToG :: String -> String
 asciiTextToG  = drop 1
