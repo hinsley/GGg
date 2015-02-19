@@ -14,9 +14,9 @@ gToAscii g = if g == "," then ' '
                                       else fst $ tableEntries !! 0
 
 asciiTextToG :: [Char] -> [Char]
-asciiTextToG a = drop 1
-               $ foldl (++) ""
-               $ map (\c -> (if c == ' ' then "" else " ") ++ asciiToG c) a
+asciiTextToG  = drop 1
+              . foldl (++) ""
+              . map (\c -> (if c == ' ' then "" else " ") ++ asciiToG c)
 
 gTextToAscii :: [Char] -> [Char]
 gTextToAscii = foldr (:) ""
