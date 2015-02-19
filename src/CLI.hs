@@ -2,6 +2,8 @@ module CLI
 ( parseArgs
 ) where
 
+import Conversions
+
 parseArgs :: [String] -> IO ()
 parseArgs ["-g"] = putStr . asciiTextToG =<< getContents
 parseArgs ["-a"] = putStr . gTextToAscii =<< getContents

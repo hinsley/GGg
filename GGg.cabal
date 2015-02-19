@@ -2,7 +2,7 @@
 -- see http://haskell.org/cabal/users-guide/
 
 name:                GGg
-version:             0.1.0.1
+version:             0.1.0.2
 synopsis:            GGg cipher
 -- description:         
 homepage:            https://github.com/xnil/GGg

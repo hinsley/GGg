@@ -3,7 +3,6 @@ module Conversions
 , gTextToAscii
 ) where
 
-import Conversions
 import qualified Data.Bimap as Bimap
 import Data.Maybe (fromMaybe)
 
