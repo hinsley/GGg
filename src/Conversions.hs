@@ -1,4 +1,7 @@
-module Conversions where
+module Conversions
+( asciiTextToG
+, gTextToAscii
+) where
 
 import qualified Data.Bimap as Bimap
 import Data.Maybe (fromMaybe)
