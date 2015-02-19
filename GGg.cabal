@@ -2,7 +2,7 @@
 -- see http://haskell.org/cabal/users-guide/
 
 name:                GGg
-version:             0.1.0.0
+version:             0.1.0.1
 synopsis:            GGg cipher
 -- description:         
 homepage:            https://github.com/xnil/GGg
@@ -18,7 +18,7 @@ cabal-version:       >=1.10
 
 executable GGg
   main-is:             Main.hs
-  -- other-modules:       
+  other-modules: Conversions
   -- other-extensions:    
   build-depends:
       base >=4.7 && <4.8,
