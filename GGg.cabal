@@ -18,7 +18,9 @@ cabal-version:       >=1.10
 
 executable GGg
   main-is:             Main.hs
-  other-modules: Conversions
+  other-modules:
+      CLI,
+      Conversions
   -- other-extensions:    
   build-depends:
       base >=4.7 && <4.8,

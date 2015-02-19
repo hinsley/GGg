@@ -1,6 +1,5 @@
 module Main where
 
-import Conversions
 import CLI
 import System.Environment
 
