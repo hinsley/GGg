@@ -1,3 +1,10 @@
+{-|
+Module      : Conversions
+Description : Functions for translating between GGg and ASCII
+Copyright   : (c) Carter Hinsley, 2015
+License     : MIT
+Maintainer  : carterhinsley@gmail.com
+-}
 module Conversions
 ( asciiTextToG
 , gTextToAscii
@@ -6,17 +13,23 @@ module Conversions
 import qualified Data.Bimap as Bimap
 import Data.Maybe (fromMaybe)
 
+-- | Convert an ASCII character to a GGg word. If not a known GGg word, convert
+-- the Char to a String.
 asciiToG :: Char -> String
 asciiToG a = fromMaybe [a] $ Bimap.lookup a lookupTable
 
+-- | Convert a GGg word to an ASCII character. If not a known GGg word, return
+-- the first Char of the GGg String.
 gToAscii :: String -> Char
 gToAscii g = fromMaybe (g !! 0) $ Bimap.lookupR g lookupTable
 
+-- | Convert an ASCII string to a GGg string using `asciiToG`.
 asciiTextToG :: String -> String
 asciiTextToG  = drop 1
               . foldl (++) ""
               . map (\c -> (if c == ' ' then "" else " ") ++ asciiToG c)
 
+-- | Convert a GGg string to an ASCII string using `gToAscii`.
 gTextToAscii :: String -> String
 gTextToAscii = foldr (:) ""
              . map gToAscii
@@ -24,6 +37,8 @@ gTextToAscii = foldr (:) ""
              . concatMap id
              . map (\c -> if c == ',' then " ," else [c])
 
+-- | Data.Bimap.Bimap containing translation mappings for ASCII->GGg and vice
+-- versa.
 lookupTable :: Bimap.Bimap Char String
 lookupTable =
     Bimap.fromList [ ('a', "gG")
