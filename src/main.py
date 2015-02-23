@@ -7,7 +7,7 @@ if __name__ == "__main__":
 	elif "-a" in sys.argv:
 		print(decode(input()))
 	elif len(sys.argv) < 1:
-		print("No argument provided. Try `-g` or -`a`.")
+		print("No argument provided. Try `-g' or `-a'.")
 	else:
 		print("Invalid arguments.")
 
