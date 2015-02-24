@@ -21,7 +21,7 @@ asciiToG a = fromMaybe [a] $ Bimap.lookup a lookupTable
 -- | Convert a GGg word to an ASCII character. If not a known GGg word, return
 -- the first Char of the GGg String.
 gToAscii :: String -> Char
-gToAscii g = fromMaybe (g !! 0) $ Bimap.lookupR g lookupTable
+gToAscii g = fromMaybe (head g) $ Bimap.lookupR g lookupTable
 
 -- | Convert an ASCII string to a GGg string using `asciiToG`.
 asciiTextToG :: String -> String
@@ -31,8 +31,7 @@ asciiTextToG  = drop 1
 
 -- | Convert a GGg string to an ASCII string using `gToAscii`.
 gTextToAscii :: String -> String
-gTextToAscii = foldr (:) ""
-             . map gToAscii
+gTextToAscii = foldr ((:) . gToAscii) ""
              . words
              . concatMap id
              . map (\c -> if c == ',' then " ," else [c])
